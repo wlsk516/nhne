@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NH &amp; E Group Inc — Korean Anti-Aging Cosmetics</title>
+  <meta name="description" content="NH &amp; E Group Inc is a Korea-focused cosmetic sourcing and distribution company specializing in anti-aging skincare products for private clients.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: #080808;
+      color: #F0EBE1;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* ── Typography ── */
+    .font-serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+    /* ── Section label ── */
+    .label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #C9A84C;
+    }
+
+    /* ── Gold rules ── */
+    .gold-rule {
+      width: 56px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #C9A84C 40%, #C9A84C 60%, transparent);
+      margin: 0 auto;
+    }
+    .gold-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(201,168,76,0.5) 30%, rgba(201,168,76,0.7) 50%, rgba(201,168,76,0.5) 70%, transparent 100%);
+    }
+
+    /* ── Navigation ── */
+    .nav-link {
+      position: relative;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #7A7060;
+      text-decoration: none;
+      padding-bottom: 2px;
+      transition: color 0.25s ease;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      right: 50%;
+      height: 1px;
+      background: #C9A84C;
+      transition: left 0.3s ease, right 0.3s ease;
+    }
+    .nav-link:hover { color: #C9A84C; }
+    .nav-link:hover::after { left: 0; right: 0; }
+
+    /* ── Buttons ── */
+    .btn-gold {
+      display: inline-block;
+      background: #C9A84C;
+      color: #080808;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 13px 32px;
+      border: 1px solid #C9A84C;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-gold:hover {
+      transform: scale(1.025);
+      opacity: 0.92;
+      box-shadow: 0 8px 32px rgba(201,168,76,0.25);
+    }
+    .btn-ghost {
+      display: inline-block;
+      background: transparent;
+      color: #C9A84C;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 13px 32px;
+      border: 1px solid rgba(201,168,76,0.45);
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease, background 0.2s ease;
+    }
+    .btn-ghost:hover {
+      transform: scale(1.025);
+      border-color: #C9A84C;
+      background: rgba(201,168,76,0.06);
+    }
+
+    /* ── Product cards ── */
+    .product-card {
+      background: #141414;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 28px 64px rgba(201,168,76,0.11), 0 8px 24px rgba(0,0,0,0.5);
+    }
+    .product-card > img {
+      transform: scale(1.02);
+      transition: transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .product-card:hover > img { transform: scale(1.07); }
+
+    /* ── Form inputs ── */
+    .form-input {
+      background: #0E0E0E;
+      border: 1px solid rgba(201,168,76,0.18);
+      color: #F0EBE1;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 300;
+      padding: 14px 16px;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      -webkit-appearance: none;
+    }
+    .form-input:focus {
+      border-color: rgba(201,168,76,0.65);
+      box-shadow: 0 0 0 2px rgba(201,168,76,0.08);
+    }
+    .form-input::placeholder { color: #423830; }
+    .form-input option { background: #0E0E0E; color: #F0EBE1; }
+
+    /* ── Scroll reveal — CSS keyframe, triggered by .entered class ──
+       Default state is ALWAYS visible; animation plays when .entered is added */
+    @keyframes revealUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0);    }
+    }
+    .reveal.entered         { animation: revealUp 0.8s ease forwards; }
+    .rv1.entered            { animation-delay: 0.08s; }
+    .rv2.entered            { animation-delay: 0.18s; }
+    .rv3.entered            { animation-delay: 0.28s; }
+    .rv4.entered            { animation-delay: 0.38s; }
+
+    /* ── Hero animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0);    }
+    }
+    .h-label   { animation: fadeUp 0.7s ease 0.05s both; }
+    .h-heading { animation: fadeUp 0.95s ease 0.15s both; }
+    .h-sub     { animation: fadeUp 0.75s ease 0.25s both; }
+    .h-rule    { animation: fadeUp 0.5s  ease 0.35s both; }
+    .h-btns    { animation: fadeUp 0.7s  ease 0.4s  both; }
+
+    /* ── Stat counter box ── */
+    .stat-box {
+      border: 1px solid rgba(201,168,76,0.18);
+      padding: 28px 24px;
+      text-align: center;
+      background: rgba(201,168,76,0.02);
+    }
+
+    /* ── Research rows ── */
+    .research-row {
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+      padding: 56px 0;
+    }
+    .research-row:first-child { border-top: 1px solid rgba(201,168,76,0.12); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .about-cols   { grid-template-columns: 1fr !important; }
+      .about-rule   { display: none !important; }
+      .footer-cols  { grid-template-columns: 1fr 1fr !important; }
+      .research-row { grid-template-columns: 1fr !important; gap: 28px !important; }
+    }
+    @media (max-width: 640px) {
+      .footer-cols  { grid-template-columns: 1fr !important; }
+      .hero-btns-wrap { flex-direction: column; align-items: center; }
+      .form-two-col { grid-template-columns: 1fr !important; }
+      .stats-row    { grid-template-columns: 1fr 1fr !important; }
+      .research-kv  { grid-template-columns: 1fr !important; }
+    }
+    @media (max-width: 900px) {
+      .inquire-split { grid-template-columns: 1fr !important; }
+      .inquire-split > div:first-child { display: none !important; }
+      .inquire-split > div:last-child { padding: 80px 32px !important; }
+    }
+    @media (min-width: 901px) {
+      #mobile-menu { display: none !important; }
+      #hamburger-btn { display: none !important; }
+    }
+    @media (max-width: 900px) {
+      #desktop-nav-links { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════════ -->
+<nav id="navbar" style="position:fixed;top:0;left:0;right:0;z-index:200;background:#080808;border-bottom:1px solid rgba(201,168,76,0.15);transition:background 0.3s ease,backdrop-filter 0.3s ease;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 36px;height:90px;display:flex;align-items:center;justify-content:space-between;">
+
+    <!-- Logo -->
+    <a href="#" style="flex-shrink:0;line-height:0;">
+      <img src="logo.png" alt="NH &amp; E Group Inc" style="height:62px;width:auto;object-fit:contain;">
+    </a>
+
+    <!-- Desktop nav -->
+    <div id="desktop-nav-links" style="display:flex;align-items:center;gap:44px;">
+      <a href="#about"    class="nav-link">About</a>
+      <a href="#sourcing" class="nav-link">Sourcing</a>
+      <a href="#products" class="nav-link">Products</a>
+      <a href="#research" class="nav-link">Research</a>
+      <a href="#inquire"  class="btn-gold" style="padding:10px 22px;font-size:0.62rem;">Inquire</a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button id="hamburger-btn" onclick="toggleMenu()" style="background:none;border:none;cursor:pointer;padding:8px;display:flex;flex-direction:column;gap:6px;" aria-label="Menu">
+      <span style="display:block;width:26px;height:1px;background:#C9A84C;"></span>
+      <span style="display:block;width:18px;height:1px;background:#C9A84C;"></span>
+      <span style="display:block;width:26px;height:1px;background:#C9A84C;"></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" style="background:#0D0D0D;border-top:1px solid rgba(201,168,76,0.1);padding:28px 36px 36px;display:none;flex-direction:column;gap:0;">
+    <a href="#about"    onclick="closeMenu()" style="display:block;padding:14px 0;border-bottom:1px solid rgba(201,168,76,0.08);font-size:0.8rem;letter-spacing:0.14em;text-transform:uppercase;color:#7A7060;text-decoration:none;">About</a>
+    <a href="#sourcing" onclick="closeMenu()" style="display:block;padding:14px 0;border-bottom:1px solid rgba(201,168,76,0.08);font-size:0.8rem;letter-spacing:0.14em;text-transform:uppercase;color:#7A7060;text-decoration:none;">Sourcing</a>
+    <a href="#products" onclick="closeMenu()" style="display:block;padding:14px 0;border-bottom:1px solid rgba(201,168,76,0.08);font-size:0.8rem;letter-spacing:0.14em;text-transform:uppercase;color:#7A7060;text-decoration:none;">Products</a>
+    <a href="#research" onclick="closeMenu()" style="display:block;padding:14px 0;border-bottom:1px solid rgba(201,168,76,0.08);font-size:0.8rem;letter-spacing:0.14em;text-transform:uppercase;color:#7A7060;text-decoration:none;">Research</a>
+    <a href="#inquire"  onclick="closeMenu()" class="btn-gold" style="margin-top:24px;text-align:center;">Inquire</a>
+  </div>
+</nav>
+
+
+<!-- ════════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section id="hero" style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#080808;padding-top:90px;">
+
+  <!-- Hero background image -->
+  <img src="bg/hero.jpg" aria-hidden="true" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;z-index:0;pointer-events:none;">
+
+  <!-- Dark overlay for text readability -->
+  <div aria-hidden="true" style="position:absolute;inset:0;background:rgba(6,5,4,0.54);z-index:0;pointer-events:none;"></div>
+
+  <!-- Warm gold radial accent (bleeds through overlay) -->
+  <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;z-index:0;">
+    <div style="position:absolute;top:-10%;right:-5%;width:50%;height:65%;background:radial-gradient(ellipse at center, rgba(201,168,76,0.08) 0%, transparent 62%);"></div>
+  </div>
+
+  <!-- SVG grain (lighter — photo provides texture) -->
+  <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;z-index:0;opacity:0.2;">
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <filter id="grain">
+        <feTurbulence type="fractalNoise" baseFrequency="0.78" numOctaves="4" stitchTiles="stitch"/>
+        <feColorMatrix type="saturate" values="0"/>
+        <feBlend in="SourceGraphic" mode="overlay" result="b"/>
+        <feComposite in="b" in2="SourceGraphic" operator="in"/>
+      </filter>
+      <rect width="100%" height="100%" filter="url(#grain)" opacity="0.09"/>
+    </svg>
+  </div>
+
+  <!-- Hero content -->
+  <div style="position:relative;z-index:2;text-align:center;max-width:900px;padding:0 32px 64px;">
+    <p class="h-label label" style="margin-bottom:28px;">Korean Anti-Aging Cosmetics &nbsp;·&nbsp; Private Client Distribution</p>
+
+    <h1 class="h-heading font-serif" style="font-size:clamp(52px,7.5vw,96px);font-weight:600;line-height:1.07;letter-spacing:-0.025em;color:#FFFFFF;margin-bottom:32px;">
+      K-Beauty<br>
+      <em style="font-style:italic;color:#C9A84C;">Anti-Aging Skincare</em>
+    </h1>
+
+    <p class="h-sub" style="font-size:1rem;font-weight:300;line-height:1.8;color:#7A7060;max-width:520px;margin:0 auto 40px;">
+      NH&nbsp;&amp;&nbsp;E Group Inc selects, produces, and distributes research&#8209;informed Korean anti-aging formulations through a private inquiry&#8209;based model.
+    </p>
+
+    <div class="h-rule" style="margin-bottom:44px;">
+      <div class="gold-divider" style="max-width:180px;margin:0 auto;"></div>
+    </div>
+
+    <div class="h-btns hero-btns-wrap" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="#products" class="btn-ghost">View Featured Products</a>
+      <a href="#inquire"  class="btn-gold">Submit an Inquiry</a>
+    </div>
+  </div>
+
+  <!-- Bottom fade -->
+  <div aria-hidden="true" style="position:absolute;bottom:0;left:0;right:0;height:140px;background:linear-gradient(to bottom,transparent,#080808);pointer-events:none;z-index:1;"></div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     STATS BAR
+════════════════════════════════════════ -->
+<div style="background:#0E0E0E;border-top:1px solid rgba(201,168,76,0.1);border-bottom:1px solid rgba(201,168,76,0.1);padding:40px 32px;">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2px;" class="stats-row">
+    <div class="stat-box">
+      <p class="font-serif" style="font-size:2.2rem;font-weight:600;color:#D4B45A;line-height:1;margin-bottom:10px;">3</p>
+      <p style="font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:#7A7060;">Featured Products</p>
+    </div>
+    <div class="stat-box" style="border-left:none;">
+      <p class="font-serif" style="font-size:2.2rem;font-weight:600;color:#D4B45A;line-height:1;margin-bottom:10px;">Korea</p>
+      <p style="font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:#7A7060;">Manufacturing Origin</p>
+    </div>
+    <div class="stat-box" style="border-left:none;">
+      <p class="font-serif" style="font-size:2.2rem;font-weight:600;color:#D4B45A;line-height:1;margin-bottom:10px;">OEM/ODM</p>
+      <p style="font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:#7A7060;">Production Model</p>
+    </div>
+    <div class="stat-box" style="border-left:none;">
+      <p class="font-serif" style="font-size:2.2rem;font-weight:600;color:#D4B45A;line-height:1;margin-bottom:10px;">Private</p>
+      <p style="font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:#7A7060;">Client Distribution</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     ABOUT
+════════════════════════════════════════ -->
+<section id="about" style="background:#F7F4EE;padding:120px 32px;">
+  <div style="max-width:1100px;margin:0 auto;">
+
+    <div class="reveal" style="text-align:center;margin-bottom:72px;">
+      <p class="label" style="margin-bottom:18px;">About the Company</p>
+      <div class="gold-rule"></div>
+    </div>
+
+    <div class="about-cols" style="display:grid;grid-template-columns:1fr 1px 1fr;gap:0 72px;align-items:start;">
+
+      <!-- Left -->
+      <div class="reveal">
+        <h2 class="font-serif" style="font-size:clamp(30px,3.5vw,48px);font-weight:600;line-height:1.18;letter-spacing:-0.025em;color:#1A1510;margin-bottom:32px;">
+          NH&nbsp;&amp;&nbsp;E Group Inc
+        </h2>
+        <p style="font-size:0.88rem;line-height:1.88;color:#4A3D30;margin-bottom:20px;">
+          NH &amp; E Group Inc is a Korea-focused cosmetic sourcing and distribution company specializing in anti-aging skincare. We identify formulations aligned with current Korean dermatological research and coordinate their production and distribution through a private, inquiry-based model.
+        </p>
+        <p style="font-size:0.88rem;line-height:1.88;color:#4A3D30;margin-bottom:20px;">
+          Our distribution is structured around private client relationships. We do not operate a public retail storefront. Inquiries are received by email, and pricing is discussed directly with each client based on volume and product selection.
+        </p>
+        <p style="font-size:0.88rem;line-height:1.88;color:#4A3D30;">
+          Products are manufactured at commercial scale through established Korean OEM/ODM partners. Our role is product selection, sourcing coordination, and client distribution — not ownership or operation of manufacturing facilities.
+        </p>
+      </div>
+
+      <!-- Gold vertical rule -->
+      <div class="about-rule" style="background:linear-gradient(to bottom,transparent,rgba(201,168,76,0.4) 25%,rgba(201,168,76,0.6) 50%,rgba(201,168,76,0.4) 75%,transparent);align-self:stretch;"></div>
+
+      <!-- Right -->
+      <div class="reveal rv2">
+        <!-- Decorative product image -->
+        <div style="margin-bottom:32px;overflow:hidden;border:1px solid rgba(201,168,76,0.18);">
+          <img src="bg/about.jpg" alt="Korean Anti-Aging Formulations" style="width:100%;height:200px;object-fit:cover;object-position:50% 40%;display:block;">
+        </div>
+
+        <!-- Pull quote -->
+        <div style="padding-left:28px;border-left:2px solid rgba(201,168,76,0.45);margin-bottom:52px;">
+          <p class="font-serif" style="font-size:1.45rem;font-style:italic;font-weight:400;line-height:1.5;color:#C9A84C;margin-bottom:14px;">
+            "Research-informed selection. Commercial-scale production. Private client distribution."
+          </p>
+          <p style="font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:#6A5844;">NH &amp; E Group Inc — Operating Principles</p>
+        </div>
+
+        <!-- Bullet points -->
+        <div style="display:flex;flex-direction:column;gap:22px;">
+
+          <div style="display:flex;gap:18px;align-items:flex-start;">
+            <div style="width:5px;height:5px;background:#C9A84C;border-radius:50%;margin-top:7px;flex-shrink:0;"></div>
+            <div>
+              <p style="font-size:0.78rem;font-weight:500;letter-spacing:0.06em;color:#1A1510;margin-bottom:5px;">Korea-Focused Product Selection</p>
+              <p style="font-size:0.82rem;line-height:1.75;color:#5A4A38;">Monitoring Korean anti-aging formulation trends. Products selected based on ingredient relevance and formulation quality.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:18px;align-items:flex-start;">
+            <div style="width:5px;height:5px;background:#C9A84C;border-radius:50%;margin-top:7px;flex-shrink:0;"></div>
+            <div>
+              <p style="font-size:0.78rem;font-weight:500;letter-spacing:0.06em;color:#1A1510;margin-bottom:5px;">OEM/ODM Manufacturing Network</p>
+              <p style="font-size:0.82rem;line-height:1.75;color:#5A4A38;">Production coordinated through established Korean contract manufacturing partners at commercial scale.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:18px;align-items:flex-start;">
+            <div style="width:5px;height:5px;background:#C9A84C;border-radius:50%;margin-top:7px;flex-shrink:0;"></div>
+            <div>
+              <p style="font-size:0.78rem;font-weight:500;letter-spacing:0.06em;color:#1A1510;margin-bottom:5px;">Cost-Efficient Production Model</p>
+              <p style="font-size:0.82rem;line-height:1.75;color:#5A4A38;">Competitive private pricing achieved through production efficiency and direct sourcing from Korean manufacturing partners.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:18px;align-items:flex-start;">
+            <div style="width:5px;height:5px;background:#C9A84C;border-radius:50%;margin-top:7px;flex-shrink:0;"></div>
+            <div>
+              <p style="font-size:0.78rem;font-weight:500;letter-spacing:0.06em;color:#1A1510;margin-bottom:5px;">Private Client Distribution</p>
+              <p style="font-size:0.82rem;line-height:1.75;color:#5A4A38;">All transactions initiated by client inquiry. Pricing and availability discussed directly after submission.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     MANUFACTURING & SOURCING MODEL
+════════════════════════════════════════ -->
+<section id="sourcing" style="background:#111111;padding:120px 32px;position:relative;overflow:hidden;">
+
+  <!-- Subtle background texture image -->
+  <img src="bg/sourcing.jpg" aria-hidden="true" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;z-index:0;pointer-events:none;opacity:0.07;">
+
+  <div aria-hidden="true" style="position:absolute;top:0;right:0;width:420px;height:420px;background:radial-gradient(ellipse at top right,rgba(201,168,76,0.05),transparent 68%);pointer-events:none;z-index:0;"></div>
+  <div aria-hidden="true" style="position:absolute;bottom:0;left:0;width:300px;height:300px;background:radial-gradient(ellipse at bottom left,rgba(201,168,76,0.03),transparent 65%);pointer-events:none;z-index:0;"></div>
+
+  <div style="max-width:1100px;margin:0 auto;position:relative;z-index:1;">
+
+    <div class="reveal" style="text-align:center;margin-bottom:80px;">
+      <p class="label" style="margin-bottom:18px;">Operations</p>
+      <h2 class="font-serif" style="font-size:clamp(28px,3.5vw,46px);font-weight:600;letter-spacing:-0.025em;color:#FFFFFF;margin-bottom:20px;">Manufacturing &amp; Sourcing Model</h2>
+      <div class="gold-rule"></div>
+    </div>
+
+    <!-- 3 cards -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2px;margin-bottom:48px;">
+
+      <!-- Card 1 -->
+      <div class="reveal" style="background:#0D0D0D;padding:52px 40px;">
+        <div style="margin-bottom:32px;">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="22" cy="22" r="21" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
+            <ellipse cx="22" cy="22" rx="9" ry="12" stroke="#C9A84C" stroke-width="1" fill="none"/>
+            <line x1="22" y1="10" x2="22" y2="34" stroke="rgba(201,168,76,0.35)" stroke-width="0.7"/>
+            <line x1="10" y1="22" x2="34" y2="22" stroke="rgba(201,168,76,0.35)" stroke-width="0.7"/>
+            <circle cx="22" cy="22" r="2.5" fill="#C9A84C" opacity="0.75"/>
+          </svg>
+        </div>
+        <h3 class="font-serif" style="font-size:1.4rem;font-weight:600;color:#FFFFFF;line-height:1.25;margin-bottom:18px;letter-spacing:-0.01em;">OEM/ODM<br>Manufacturing Partners</h3>
+        <p style="font-size:0.83rem;line-height:1.85;color:#6A6050;">Produced through established Korean OEM/ODM manufacturing partners. NH &amp; E Group Inc coordinates production requirements and quality specifications through partner facilities. All production is handled at the partner level.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="reveal rv1" style="background:#0D0D0D;padding:52px 40px;border-left:1px solid rgba(201,168,76,0.07);border-right:1px solid rgba(201,168,76,0.07);">
+        <div style="margin-bottom:32px;">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="22" cy="22" r="21" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
+            <rect x="12" y="27" width="20" height="5" stroke="#C9A84C" stroke-width="1" fill="none"/>
+            <rect x="15" y="21" width="14" height="6" stroke="rgba(201,168,76,0.6)" stroke-width="0.8" fill="none"/>
+            <rect x="18" y="15" width="8" height="6" stroke="rgba(201,168,76,0.4)" stroke-width="0.8" fill="none"/>
+          </svg>
+        </div>
+        <h3 class="font-serif" style="font-size:1.4rem;font-weight:600;color:#FFFFFF;line-height:1.25;margin-bottom:18px;letter-spacing:-0.01em;">Commercial-Scale<br>Production</h3>
+        <p style="font-size:0.83rem;line-height:1.85;color:#6A6050;">Manufactured at commercial scale to maintain formulation consistency and cost efficiency across production runs. Scale operations support competitive private pricing without compromising on formulation integrity.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="reveal rv2" style="background:#0D0D0D;padding:52px 40px;">
+        <div style="margin-bottom:32px;">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="22" cy="22" r="21" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
+            <path d="M13 28 L13 21 L22 14 L31 21 L31 28" stroke="#C9A84C" stroke-width="1" fill="none"/>
+            <path d="M17 28 L17 23 L22 19 L27 23 L27 28" stroke="rgba(201,168,76,0.5)" stroke-width="0.8" fill="none"/>
+            <line x1="11" y1="28" x2="33" y2="28" stroke="rgba(201,168,76,0.4)" stroke-width="0.8"/>
+          </svg>
+        </div>
+        <h3 class="font-serif" style="font-size:1.4rem;font-weight:600;color:#FFFFFF;line-height:1.25;margin-bottom:18px;letter-spacing:-0.01em;">Direct Inquiry<br>Distribution</h3>
+        <p style="font-size:0.83rem;line-height:1.85;color:#6A6050;">Distribution is conducted through a direct inquiry model. Private clients submit requests by email and receive pricing and availability details directly. This approach supports competitive private pricing through production efficiency and direct sourcing.</p>
+      </div>
+
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="reveal" style="text-align:center;padding:20px 28px;border:1px solid rgba(201,168,76,0.1);background:rgba(201,168,76,0.015);">
+      <p style="font-size:0.72rem;color:#4A4030;letter-spacing:0.07em;line-height:1.75;">NH &amp; E Group Inc does not own or operate manufacturing facilities. All production is conducted through third-party Korean OEM/ODM contract manufacturing partners.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     FEATURED PRODUCTS
+════════════════════════════════════════ -->
+<section id="products" style="background:#080808;padding:120px 32px;">
+  <div style="max-width:1220px;margin:0 auto;">
+
+    <div class="reveal" style="text-align:center;margin-bottom:80px;">
+      <p class="label" style="margin-bottom:18px;">Current Portfolio</p>
+      <h2 class="font-serif" style="font-size:clamp(28px,3.5vw,46px);font-weight:600;letter-spacing:-0.025em;color:#FFFFFF;margin-bottom:20px;">Featured Products</h2>
+      <div class="gold-rule" style="margin-bottom:28px;"></div>
+      <p style="font-size:0.85rem;line-height:1.8;color:#5A5040;max-width:480px;margin:0 auto;">Products selected based on formulation quality, ingredient relevance, and alignment with Korean anti-aging research. Pricing discussed privately upon inquiry.</p>
+    </div>
+
+    <!-- Product grid -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px;">
+
+      <!-- Product 1 -->
+      <div class="product-card reveal" style="position:relative;overflow:hidden;aspect-ratio:3/4;min-height:420px;">
+        <img
+          src="us.sulwhasoo.com_products_concentrated-ginseng-rejuvenating-cream-rich.png"
+          alt="Concentrated Ginseng Rejuvenating Cream Rich"
+          style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 5%;transform:scale(1.02);transition:transform 0.65s cubic-bezier(0.25,0.46,0.45,0.94);"
+        >
+        <!-- Gradient overlay -->
+        <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 28%,rgba(8,8,8,0.62) 55%,rgba(8,8,8,0.94) 100%);pointer-events:none;"></div>
+        <!-- Badge -->
+        <div style="position:absolute;top:18px;left:18px;background:rgba(6,6,6,0.88);border:1px solid rgba(201,168,76,0.38);padding:5px 13px;backdrop-filter:blur(4px);">
+          <span style="font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:#C9A84C;">Anti-Aging Cream</span>
+        </div>
+        <!-- Content overlay at bottom -->
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:28px 32px;">
+          <h3 class="font-serif" style="font-size:1.35rem;font-weight:600;color:#FFFFFF;line-height:1.22;margin-bottom:10px;letter-spacing:-0.01em;text-shadow:0 1px 6px rgba(0,0,0,0.6);">Concentrated Ginseng<br>Rejuvenating Cream Rich</h3>
+          <p style="font-size:0.78rem;line-height:1.75;color:#C8BFB0;margin-bottom:18px;text-shadow:0 1px 4px rgba(0,0,0,0.5);">Ginseng-based rejuvenating cream formulated for intensive anti-aging support. Selected for its formulation quality and alignment with Korean skin longevity trends.</p>
+          <div style="height:1px;background:rgba(201,168,76,0.22);margin-bottom:16px;"></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+            <span style="font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:#7A6A50;">Pricing on Inquiry</span>
+            <a href="#inquire" class="btn-gold" style="padding:9px 20px;font-size:0.58rem;flex-shrink:0;">Submit Inquiry</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card reveal rv1" style="position:relative;overflow:hidden;aspect-ratio:3/4;min-height:420px;">
+        <img
+          src="product-ampoule.png"
+          alt="Bifida Complex Rejuvenating Ampoule"
+          style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 3%;transform:scale(1.02);transition:transform 0.65s cubic-bezier(0.25,0.46,0.45,0.94);"
+        >
+        <!-- Gradient overlay -->
+        <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 28%,rgba(8,8,8,0.62) 55%,rgba(8,8,8,0.94) 100%);pointer-events:none;"></div>
+        <!-- Badge -->
+        <div style="position:absolute;top:18px;left:18px;background:rgba(6,6,6,0.88);border:1px solid rgba(201,168,76,0.38);padding:5px 13px;backdrop-filter:blur(4px);">
+          <span style="font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:#C9A84C;">Overnight Serum Ampoule</span>
+        </div>
+        <!-- Content overlay at bottom -->
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:28px 32px;">
+          <h3 class="font-serif" style="font-size:1.35rem;font-weight:600;color:#FFFFFF;line-height:1.22;margin-bottom:10px;letter-spacing:-0.01em;text-shadow:0 1px 6px rgba(0,0,0,0.6);">Bifida Complex<br>Rejuvenating Ampoule</h3>
+          <p style="font-size:0.78rem;line-height:1.75;color:#C8BFB0;margin-bottom:18px;text-shadow:0 1px 4px rgba(0,0,0,0.5);">Bifida ferment-enriched ampoule designed for overnight skin renewal. Addresses visible signs of aging through concentrated active delivery.</p>
+          <div style="height:1px;background:rgba(201,168,76,0.22);margin-bottom:16px;"></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+            <span style="font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:#7A6A50;">Pricing on Inquiry</span>
+            <a href="#inquire" class="btn-gold" style="padding:9px 20px;font-size:0.58rem;flex-shrink:0;">Submit Inquiry</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card reveal rv2" style="position:relative;overflow:hidden;aspect-ratio:3/4;min-height:420px;">
+        <img
+          src="product-retinol.png"
+          alt="Retinol 0.1 Recovery Cream"
+          style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 3%;transform:scale(1.02);transition:transform 0.65s cubic-bezier(0.25,0.46,0.45,0.94);"
+        >
+        <!-- Gradient overlay -->
+        <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 28%,rgba(8,8,8,0.62) 55%,rgba(8,8,8,0.94) 100%);pointer-events:none;"></div>
+        <!-- Badge -->
+        <div style="position:absolute;top:18px;left:18px;background:rgba(6,6,6,0.88);border:1px solid rgba(201,168,76,0.38);padding:5px 13px;backdrop-filter:blur(4px);">
+          <span style="font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:#C9A84C;">Retinol Cream</span>
+        </div>
+        <!-- Content overlay at bottom -->
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:28px 32px;">
+          <h3 class="font-serif" style="font-size:1.35rem;font-weight:600;color:#FFFFFF;line-height:1.22;margin-bottom:10px;letter-spacing:-0.01em;text-shadow:0 1px 6px rgba(0,0,0,0.6);">Retinol 0.1<br>Recovery Cream</h3>
+          <p style="font-size:0.78rem;line-height:1.75;color:#C8BFB0;margin-bottom:18px;text-shadow:0 1px 4px rgba(0,0,0,0.5);">0.1% retinol formulation with Super Vitamin E and Panthenol. Research-informed selection for age-correction and skin barrier support.</p>
+          <div style="height:1px;background:rgba(201,168,76,0.22);margin-bottom:16px;"></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+            <span style="font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:#7A6A50;">Pricing on Inquiry</span>
+            <a href="#inquire" class="btn-gold" style="padding:9px 20px;font-size:0.58rem;flex-shrink:0;">Submit Inquiry</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     IMAGE DIVIDER BAND
+════════════════════════════════════════ -->
+<div style="position:relative;height:400px;overflow:hidden;">
+  <img src="bg/beauty.jpg" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 35%;">
+  <!-- Dark overlay -->
+  <div aria-hidden="true" style="position:absolute;inset:0;background:rgba(6,5,4,0.42);"></div>
+  <!-- Content -->
+  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 32px;">
+    <div class="gold-rule" style="margin-bottom:28px;"></div>
+    <p class="font-serif" style="font-size:clamp(22px,2.8vw,36px);font-weight:400;font-style:italic;color:#F0EBE1;letter-spacing:0.02em;line-height:1.4;">Korean Anti-Aging Formulations</p>
+    <p style="font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;color:rgba(201,168,76,0.75);margin-top:14px;">Research-Informed · OEM/ODM Sourced · Private Distribution</p>
+    <div class="gold-rule" style="margin-top:28px;"></div>
+  </div>
+  <!-- Edge fades -->
+  <div aria-hidden="true" style="position:absolute;top:0;left:0;right:0;height:80px;background:linear-gradient(to bottom,#080808,transparent);"></div>
+  <div aria-hidden="true" style="position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(to top,#F5F2EC,transparent);"></div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     RESEARCH & FORMULATION HIGHLIGHTS
+════════════════════════════════════════ -->
+<section id="research" style="background:#F5F2EC;padding:0 0 120px;">
+
+  <!-- Serum image strip at top of section -->
+  <div style="position:relative;width:100%;height:300px;overflow:hidden;margin-bottom:80px;">
+    <img src="bg/serum.jpg" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 38%;">
+    <!-- Warm ivory fade overlay -->
+    <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(245,242,236,0.1) 0%, rgba(245,242,236,0.55) 70%, #F5F2EC 100%);"></div>
+  </div>
+
+  <div style="max-width:1100px;margin:0 auto;padding:0 32px;">
+
+    <div class="reveal" style="text-align:center;margin-bottom:80px;margin-top:-20px;">
+      <p class="label" style="margin-bottom:18px;">Ingredient Intelligence</p>
+      <h2 class="font-serif" style="font-size:clamp(28px,3.5vw,46px);font-weight:600;letter-spacing:-0.025em;color:#1A1510;margin-bottom:20px;">Research &amp; Formulation Highlights</h2>
+      <div class="gold-rule"></div>
+    </div>
+
+    <!-- Row 1 -->
+    <div class="research-row reveal" style="display:grid;grid-template-columns:220px 1fr;gap:72px;align-items:start;">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+          <span style="font-size:0.58rem;letter-spacing:0.22em;color:#6A5844;text-transform:uppercase;">01</span>
+          <div style="flex:1;height:1px;background:rgba(201,168,76,0.25);"></div>
+        </div>
+        <h3 class="font-serif" style="font-size:1.5rem;font-weight:600;color:#1A1510;line-height:1.2;margin-bottom:10px;">Ginseng<br>Rejuvenating Cream</h3>
+        <span style="font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:#C9A84C;">Cream Formulation</span>
+      </div>
+      <div>
+        <div class="research-kv" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px;">
+          <div style="padding:18px 20px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);">
+            <p style="font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:#C9A84C;margin-bottom:8px;">Key Active</p>
+            <p style="font-size:0.88rem;font-weight:500;color:#1A1510;">Panax Ginseng Root Extract</p>
+          </div>
+          <div style="padding:18px 20px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);">
+            <p style="font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:#C9A84C;margin-bottom:8px;">Target Concern</p>
+            <p style="font-size:0.88rem;font-weight:500;color:#1A1510;">Skin Firmness &amp; Vitality</p>
+          </div>
+        </div>
+        <p style="font-size:0.85rem;line-height:1.88;color:#4A3D30;">Ginseng root extract is a well-documented active in Korean dermatological research, associated with supporting skin elasticity and vitality. This formulation was selected based on its active ingredient concentration and delivery system quality. Relevant for mature skin types and clients seeking intensive support formulations.</p>
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="research-row reveal" style="display:grid;grid-template-columns:220px 1fr;gap:72px;align-items:start;">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+          <span style="font-size:0.58rem;letter-spacing:0.22em;color:#6A5844;text-transform:uppercase;">02</span>
+          <div style="flex:1;height:1px;background:rgba(201,168,76,0.25);"></div>
+        </div>
+        <h3 class="font-serif" style="font-size:1.5rem;font-weight:600;color:#1A1510;line-height:1.2;margin-bottom:10px;">Bifida Complex<br>Ampoule</h3>
+        <span style="font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:#C9A84C;">Serum Ampoule</span>
+      </div>
+      <div>
+        <div class="research-kv" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px;">
+          <div style="padding:18px 20px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);">
+            <p style="font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:#C9A84C;margin-bottom:8px;">Key Active</p>
+            <p style="font-size:0.88rem;font-weight:500;color:#1A1510;">Bifida Ferment Lysate</p>
+          </div>
+          <div style="padding:18px 20px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);">
+            <p style="font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:#C9A84C;margin-bottom:8px;">Target Concern</p>
+            <p style="font-size:0.88rem;font-weight:500;color:#1A1510;">Overnight Skin Renewal</p>
+          </div>
+        </div>
+        <p style="font-size:0.85rem;line-height:1.88;color:#4A3D30;">Bifida ferment lysate is a probiotic-derived active prominent in Korean skincare innovation, studied for its role in supporting the skin barrier and overall skin condition. The ampoule format enables concentrated active delivery during overnight recovery cycles. Selected for formulation density and active ingredient relevance.</p>
+      </div>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="research-row reveal" style="display:grid;grid-template-columns:220px 1fr;gap:72px;align-items:start;">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+          <span style="font-size:0.58rem;letter-spacing:0.22em;color:#6A5844;text-transform:uppercase;">03</span>
+          <div style="flex:1;height:1px;background:rgba(201,168,76,0.25);"></div>
+        </div>
+        <h3 class="font-serif" style="font-size:1.5rem;font-weight:600;color:#1A1510;line-height:1.2;margin-bottom:10px;">Retinol 0.1<br>Recovery Cream</h3>
+        <span style="font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:#C9A84C;">Cream Formulation</span>
+      </div>
+      <div>
+        <div class="research-kv" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px;">
+          <div style="padding:18px 20px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);">
+            <p style="font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:#C9A84C;margin-bottom:8px;">Key Active</p>
+            <p style="font-size:0.88rem;font-weight:500;color:#1A1510;">0.1% Pure Retinol + Vitamin E</p>
+          </div>
+          <div style="padding:18px 20px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);">
+            <p style="font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:#C9A84C;margin-bottom:8px;">Target Concern</p>
+            <p style="font-size:0.88rem;font-weight:500;color:#1A1510;">Age-Correction &amp; Barrier Support</p>
+          </div>
+        </div>
+        <p style="font-size:0.85rem;line-height:1.88;color:#4A3D30;">Retinol remains one of the most widely studied actives in age-correction dermatology. This 0.1% formulation is paired with Super Vitamin E and Panthenol to support skin barrier integrity during the retinol adaptation process. Selected for its balanced active concentration and co-ingredient selection relevant to sensitive and mature skin profiles.</p>
+      </div>
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="reveal" style="margin-top:52px;padding:22px 28px;border:1px solid rgba(201,168,76,0.2);background:rgba(201,168,76,0.04);">
+      <p style="font-size:0.73rem;line-height:1.8;color:#6A5844;">
+        <strong style="color:#8A6C30;font-weight:500;">Disclaimer:&nbsp;</strong>Product selection is based on ingredient relevance and formulation quality assessments. NH &amp; E Group Inc does not conduct or claim independent clinical trials. All ingredient characterizations reference publicly available ingredient-level research and do not constitute medical or therapeutic claims.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     PRIVATE CLIENT INQUIRIES
+════════════════════════════════════════ -->
+<section id="inquire" style="background:#080808;position:relative;overflow:hidden;">
+  <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(201,168,76,0.04) 0%,transparent 55%);pointer-events:none;z-index:0;"></div>
+
+  <!-- Split layout: image left + form right -->
+  <div style="display:grid;grid-template-columns:2fr 3fr;min-height:700px;position:relative;z-index:1;" class="inquire-split">
+
+    <!-- Left: image panel -->
+    <div style="position:relative;overflow:hidden;">
+      <img src="bg/inquire.jpg" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;">
+      <div aria-hidden="true" style="position:absolute;inset:0;background:rgba(6,5,4,0.28);"></div>
+      <!-- Right edge fade into dark -->
+      <div aria-hidden="true" style="position:absolute;top:0;right:0;bottom:0;width:80px;background:linear-gradient(to right,transparent,#080808);"></div>
+    </div>
+
+    <!-- Right: form content -->
+    <div style="padding:100px 72px 100px 60px;">
+
+      <div class="reveal" style="margin-bottom:52px;">
+        <p class="label" style="margin-bottom:18px;">Distribution Inquiries</p>
+        <h2 class="font-serif" style="font-size:clamp(28px,3vw,44px);font-weight:600;letter-spacing:-0.025em;color:#FFFFFF;margin-bottom:20px;">Private Client Inquiries</h2>
+        <div class="gold-rule" style="margin:0 0 24px;"></div>
+        <p style="font-size:0.88rem;line-height:1.85;color:#6A6050;">NH &amp; E Group Inc distributes exclusively through private client inquiry. To receive product availability information and pricing, please submit your details below. A representative will respond directly via email.</p>
+      </div>
+
+      <!-- Form -->
+      <form class="reveal rv1" action="mailto:ceo@huilin.biz" method="post" enctype="text/plain" style="display:flex;flex-direction:column;gap:14px;">
+
+        <div class="form-two-col" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+          <div>
+            <label style="display:block;font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:#4A4030;margin-bottom:8px;">Full Name</label>
+            <input type="text" name="name" placeholder="Your name" class="form-input" required>
+          </div>
+          <div>
+            <label style="display:block;font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:#4A4030;margin-bottom:8px;">Company / Organization</label>
+            <input type="text" name="company" placeholder="Company name" class="form-input">
+          </div>
+        </div>
+
+        <div>
+          <label style="display:block;font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:#4A4030;margin-bottom:8px;">Email Address</label>
+          <input type="email" name="email" placeholder="your@email.com" class="form-input" required>
+        </div>
+
+        <div>
+          <label style="display:block;font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:#4A4030;margin-bottom:8px;">Product Interest</label>
+          <select name="product" class="form-input" style="cursor:pointer;">
+            <option value="all">All Featured Products</option>
+            <option value="product1">Concentrated Ginseng Rejuvenating Cream Rich</option>
+            <option value="product2">Bifida Complex Rejuvenating Ampoule</option>
+            <option value="product3">Retinol 0.1 Recovery Cream</option>
+            <option value="general">General Sourcing Inquiry</option>
+          </select>
+        </div>
+
+        <div>
+          <label style="display:block;font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:#4A4030;margin-bottom:8px;">Message</label>
+          <textarea name="message" rows="5" placeholder="Describe your inquiry, volume requirements, or any questions…" class="form-input" style="resize:vertical;min-height:130px;line-height:1.7;"></textarea>
+        </div>
+
+        <div style="padding-top:6px;">
+          <button type="submit" class="btn-gold" style="width:100%;border:none;padding:16px;font-size:0.65rem;">Submit Inquiry</button>
+        </div>
+
+      </form>
+
+      <!-- Direct email -->
+      <div class="reveal rv2" style="margin-top:36px;padding-top:32px;border-top:1px solid rgba(201,168,76,0.12);">
+        <p style="font-size:0.72rem;color:#4A4030;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px;">Or contact directly</p>
+        <a href="mailto:ceo@huilin.biz" style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:#C9A84C;text-decoration:none;letter-spacing:0.04em;transition:opacity 0.2s ease;" onmouseover="this.style.opacity='0.65'" onmouseout="this.style.opacity='1'">ceo@huilin.biz</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer style="background:#080808;border-top:1px solid rgba(201,168,76,0.22);padding:72px 32px 40px;">
+  <div style="max-width:1200px;margin:0 auto;">
+
+    <div class="footer-cols" style="display:grid;grid-template-columns:2fr 1fr 2fr;gap:64px;margin-bottom:56px;align-items:start;">
+
+      <!-- Logo + tagline -->
+      <div>
+        <img src="logo.png" alt="NH &amp; E Group Inc" style="height:50px;width:auto;object-fit:contain;display:block;margin-bottom:22px;">
+        <p style="font-size:0.82rem;line-height:1.8;color:#4A4030;max-width:280px;">Korea-focused cosmetic sourcing and distribution. Specializing in anti-aging skincare for private clients.</p>
+        <div style="height:1px;background:rgba(201,168,76,0.1);margin-top:28px;max-width:200px;"></div>
+      </div>
+
+      <!-- Nav -->
+      <div>
+        <p style="font-size:0.58rem;letter-spacing:0.24em;text-transform:uppercase;color:#C9A84C;margin-bottom:22px;">Navigation</p>
+        <div style="display:flex;flex-direction:column;gap:13px;">
+          <a href="#about"    style="font-size:0.8rem;color:#4A4030;text-decoration:none;transition:color 0.2s ease;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='#4A4030'">About</a>
+          <a href="#sourcing" style="font-size:0.8rem;color:#4A4030;text-decoration:none;transition:color 0.2s ease;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='#4A4030'">Sourcing Model</a>
+          <a href="#products" style="font-size:0.8rem;color:#4A4030;text-decoration:none;transition:color 0.2s ease;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='#4A4030'">Products</a>
+          <a href="#research" style="font-size:0.8rem;color:#4A4030;text-decoration:none;transition:color 0.2s ease;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='#4A4030'">Research</a>
+          <a href="#inquire"  style="font-size:0.8rem;color:#4A4030;text-decoration:none;transition:color 0.2s ease;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='#4A4030'">Inquire</a>
+        </div>
+      </div>
+
+      <!-- Legal -->
+      <div>
+        <p style="font-size:0.58rem;letter-spacing:0.24em;text-transform:uppercase;color:#C9A84C;margin-bottom:22px;">Legal &amp; Regulatory</p>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <p style="font-size:0.74rem;line-height:1.78;color:#3A3028;">NH &amp; E Group Inc is a cosmetic distribution and sourcing company. Products are not intended to diagnose, treat, cure, or prevent any disease.</p>
+          <p style="font-size:0.74rem;line-height:1.78;color:#3A3028;">All product descriptions reflect ingredient-level formulation characteristics. Individual results may vary.</p>
+          <p style="font-size:0.74rem;line-height:1.78;color:#3A3028;">NH &amp; E Group Inc does not own or operate manufacturing facilities. Production is coordinated through third-party Korean OEM/ODM partners.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div style="border-top:1px solid rgba(201,168,76,0.1);padding-top:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <p style="font-size:0.7rem;color:#2E2820;letter-spacing:0.08em;">&copy; 2026 NH &amp; E Group Inc. All rights reserved.</p>
+      <p style="font-size:0.7rem;color:#2E2820;letter-spacing:0.06em;">Korean Anti-Aging Cosmetics &mdash; Private Client Distribution</p>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════ -->
+<script>
+  // ── Scroll reveal ──
+  // Content is visible by default. When an element enters the viewport,
+  // we add .entered which triggers the CSS keyframe animation.
+  // Screenshots (no scroll) see all content at full opacity.
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('entered');
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  // ── Mobile menu ──
+  function toggleMenu() {
+    const m = document.getElementById('mobile-menu');
+    m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
+  }
+  function closeMenu() {
+    document.getElementById('mobile-menu').style.display = 'none';
+  }
+
+  // ── Navbar scroll effect ──
+  const navbar = document.getElementById('navbar');
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    const s = window.scrollY;
+    if (s > 80) {
+      navbar.style.background = 'rgba(8,8,8,0.96)';
+      navbar.style.backdropFilter = 'blur(14px)';
+      navbar.style.webkitBackdropFilter = 'blur(14px)';
+    } else {
+      navbar.style.background = '#080808';
+      navbar.style.backdropFilter = 'none';
+      navbar.style.webkitBackdropFilter = 'none';
+    }
+    lastScroll = s;
+  }, { passive: true });
+</script>
+
+</body>
+</html>
