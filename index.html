@@ -882,6 +882,23 @@
     document.getElementById('mobile-menu').style.display = 'none';
   }
 
+  // ── Netlify form async submission ──
+  // Prevents direct POST to /thank-you.html (which 404s).
+  // Instead sends to Netlify's form handler at '/', then redirects.
+  const inquiryForm = document.querySelector('form[name="inquiry"]');
+  if (inquiryForm) {
+    inquiryForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(this)).toString()
+      })
+      .then(() => { window.location.href = '/thank-you.html'; })
+      .catch(() => { alert('There was a problem submitting your inquiry. Please email us directly at nhnegroup@outlook.com'); });
+    });
+  }
+
   // ── Navbar scroll effect ──
   const navbar = document.getElementById('navbar');
   let lastScroll = 0;
