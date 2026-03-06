@@ -770,7 +770,7 @@
       </div>
 
       <!-- Form -->
-      <form class="reveal rv1" name="inquiry" method="POST" action="/thank-you.html" data-netlify="true" style="display:flex;flex-direction:column;gap:14px;">
+      <form id="inquiry-form" class="reveal rv1" name="inquiry" method="POST" action="/thank-you.html" data-netlify="true" style="display:flex;flex-direction:column;gap:14px;">
         <input type="hidden" name="form-name" value="inquiry">
 
         <div class="form-two-col" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
@@ -901,7 +901,7 @@
   // ── Netlify form async submission ──
   // Prevents direct POST to /thank-you.html (which 404s).
   // Instead sends to Netlify's form handler at '/', then redirects.
-  const inquiryForm = document.querySelector('form[name="inquiry"]');
+  const inquiryForm = document.getElementById('inquiry-form');
   if (inquiryForm) {
     inquiryForm.addEventListener('submit', function(e) {
       e.preventDefault();
