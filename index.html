@@ -217,6 +217,22 @@
 </head>
 <body>
 
+<!-- Netlify form detection — hidden, required for JS async submission to register in dashboard -->
+<form name="inquiry" netlify netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="inquiry">
+  <input name="name" type="text">
+  <input name="company" type="text">
+  <input name="email" type="email">
+  <select name="product">
+    <option value="all">All Featured Products</option>
+    <option value="product1">Concentrated Ginseng Rejuvenating Cream Rich</option>
+    <option value="product2">Bifida Complex Rejuvenating Ampoule</option>
+    <option value="product3">Retinol 0.1 Recovery Cream</option>
+    <option value="general">General Sourcing Inquiry</option>
+  </select>
+  <textarea name="message"></textarea>
+</form>
+
 <!-- ════════════════════════════════════════
      NAVIGATION
 ════════════════════════════════════════ -->
